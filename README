@@ -1,0 +1,14 @@
+This repository contains a collection of nomad jobs from my self hosted home network.
+
+
+
+I have a Nomad cluster with a functional Consul cluster.
+
+I have two datacentres, intranet and edge.
+
+
+
+edge => Raspberry pi router ( Nomad Client + Nomad Server ) 
+
+intranet => 1-3 nomad clients running on generic x86 hardware. Mostly old desktops that are now servers.
+
