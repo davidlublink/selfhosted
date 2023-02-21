@@ -39,6 +39,10 @@ backend mastodon
 
 This has not been tested with federation.
 
+Emails don't work
+
+File storage doesn't work
+
 
  * activate all users via postgresql
  UPDATE users SET confirmed_at = confirmation_sent_at ;
