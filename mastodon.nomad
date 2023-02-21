@@ -17,10 +17,31 @@ More details on variables can be found here :
 https://hub.docker.com/r/linuxserver/mastodon
 
 
+You need to create a volume  'mastodon' that will be used to store the postgresql data.
 
- * // create database mastodon;
+
+Troubleshooting notes : 
+
+1. Port 80 always redirects to https, so test with https
+2. Your WEB_DOMAIN must match the domain in the URL used to access the page
+
+
+
+Notes on my setup :
+
+I have an haproxy running on the edge of my nomad network to expose this service publicly. 
+
+backend mastodon
+    mode http
+    server-template four 1 _mastodon._tcp.service.consul resolvers consul resolve-opts allow-dup-ip resolve-prefer ipv4 check ssl verify none
+
+
+
+This has not been tested with federation.
+
+
  * activate all users via postgresql
- notes :  update users set confirmed_at = confirmation_sent_at ;
+ UPDATE users SET confirmed_at = confirmation_sent_at ;
  */
 
 job "Mastodon" {
